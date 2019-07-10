@@ -1,44 +1,12 @@
 <?php
 
+    require_once ('models/Conexion.php');
+
+    $conexion = new Conexion ('localhost' , 'root', '', 'creadorgrupodesarrollo');
+
     require_once("datos.php");
-
-    if (isset($_POST) && !empty($_POST)) {
-        
-        $seleccionados = [];
-
-        foreach ($desarrollador as $value) {
-            if ( strtolower($value['caracteristica']) == $_POST['caracteristica'] ){
-                $seleccionados[] = $value;
-            }
-        }
-
-        $cantSeleccionados = count($seleccionados);
-        $equipo = [];
-        if ( $cantSeleccionados > $_POST['cantidad'] ) {
-
-            shuffle($seleccionados);
-
-            for($i=0; $i < $_POST['cantidad']; $i++) { 
-                $equipo[] = $seleccionados[$i];
-            }
-            echo('<p>Se han elegido estos miembros de entre los ' . $cantSeleccionados . ' disponibles: </p>');
-        }
-        elseif ( $cantSeleccionados == $_POST['cantidad']){
-            $equipo = $seleccionados;
-            echo('<p>Este equipo requerirá la participacion de todos los mimebros con esta espacializacion. Aquí los integrantes: </p>');
-        }
-        else {
-            $equipo = $seleccionados;
-            echo('<p>El equipo no puede ser formado porque no hay suficientes miembros. Faltaría/n ' . ($_POST['cantidad'] - $cantSeleccionados) . ' integrante/s. Estos son los miembros disponibles: </p>');
-        }
-
-        if(!empty($equipo)){
-            foreach ($equipo as $item) {
-                //echo('<p>Nombre: ' . $item['nombre'] . '</p>');
-                echo('<p>' . $item['nombre'] . '</p>');
-            }
-        }
-    }
+    $conexion->hacerGrupo();
+    
 ?>
 
 

@@ -1,6 +1,7 @@
 <?php
 
 $caracteristicas = ["HTML5/CSS3", "Javascript", "PHP", "Json/XML", "Python", "Java", "Sass/Less", "Laravel"];
+
 $desarrollador = [
     array(  'nombre' => 'toni',
             'caracteristica' => 'HTML5/CSS3'),
@@ -27,7 +28,7 @@ $desarrollador = [
     array(  'nombre' => 'cristian',
             'caracteristica' => 'Java'),
     array(  'nombre' => 'jordi',
-            'caracteristica' => 'Sass/Less'),
+            'caracteristica' => 'Laravel'),
     array(  'nombre' => 'david',
             'caracteristica' => 'Laravel'),
     array(  'nombre' => 'luis',
